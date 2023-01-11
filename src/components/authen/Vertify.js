@@ -8,19 +8,19 @@ import {
   Image,
 } from 'react-native';
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 const Vertify = ({navigation}) => {
   const [otp, setOtp] = useState('');
   const [error, setError] = useState('');
   const onVertifyPress = () => {
-    if (otp == '') { setError('Vui lòng kiểm tra lại!') }
-    else {
-      navigation.navigate('Home');
+    if (otp == '') {
+      setError('Vui lòng kiểm tra lại!');
+    } else {
+      navigation.navigate('TabScreens');
     }
-
   };
-  const onGGLoginPress = () => { };
+  const onGGLoginPress = () => {};
   return (
     <ImageBackground
       source={require('../data/image/background_dot.png')}
@@ -52,13 +52,13 @@ const Vertify = ({navigation}) => {
             width: '100%',
             padding: 20,
           }}>
-          <View style={{ flex: 1, height: 1, backgroundColor: 'white' }} />
+          <View style={{flex: 1, height: 1, backgroundColor: 'white'}} />
           <View>
-            <Text style={{ width: 40, textAlign: 'center', color: 'white' }}>
+            <Text style={{width: 40, textAlign: 'center', color: 'white'}}>
               Or
             </Text>
           </View>
-          <View style={{ flex: 1, height: 1, backgroundColor: 'white' }} />
+          <View style={{flex: 1, height: 1, backgroundColor: 'white'}} />
         </View>
         <TouchableOpacity
           onPress={() => onGGLoginPress()}

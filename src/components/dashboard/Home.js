@@ -41,7 +41,7 @@ export default TabScreens = () => {
           tabBarLabel: "Bán Online",
           tabBarIcon: ({ color, size }) => (
             // <MaterialCommunityIcons name='home' color={color} size={30} />
-            <Image style={{width: 30, height: 30}}  source={require('../components/image/acc_ex.png')}/>
+            <Image style={{width: 30, height: 30}}  source={require('../data/image/acc_ex.png')}/>
           )
         }}
       />
@@ -50,7 +50,7 @@ export default TabScreens = () => {
           tabBarLabel: "Tài Khoản",
           tabBarIcon: ({ color, size }) => (
             // <MaterialIcons name='more-horiz' color={color} size={30} />
-            <Image style={{width: 30, height: 30}}  source={require('../components/image/acc_ex.png')}/>
+            <Image style={{width: 30, height: 30}}  source={require('../data/image/acc_ex.png')}/>
           )
         }}
       />

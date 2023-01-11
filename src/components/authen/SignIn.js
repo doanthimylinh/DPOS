@@ -1,46 +1,57 @@
 import {
   View,
   Text,
+  Button,
   StyleSheet,
   TextInput,
+  Touchable,
   TouchableOpacity,
   ImageBackground,
   Image,
 } from 'react-native';
-
-import React, {useState} from 'react';
-
-const Vertify = navigation => {
-  const [otp, setOtp] = useState('');
+import React, { useState } from 'react';
+// import {phoneNumberValidator} from '../../helper/phoneNumberValidator';
+import { phoneNumberValidator } from '../../helper/phoneNumberValidator'
+export default function SignIn({ navigation }) {
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [error, setError] = useState('');
-  const onVertifyPress = () => {
-    if (otp == '') setError('Vui lòng kiểm tra lại!');
-    // navigation.navigate('Home');
+
+  const onLoginPress = () => {
+    const phoneNumberError = phoneNumberValidator(phoneNumber);
+    if (phoneNumberError) {
+      setError('Số điện thoại không hợp lệ');
+      // alert('Số điện thoại không hợp lệ')
+      // navigation.navigate('GetStart')
+    } else { navigation.navigate('Vertify'); }
+
   };
-  const onGGLoginPress = () => {};
+  const onGGLoginPress = async () => { };
   return (
     <ImageBackground
-      source={require('../assets/background_dot.png')}
+      // source={require('../assets/background_dot.png')}
+      source={require('../data/image/background_dot.png')}
       resizeMode="repeat"
       style={styles.background}>
       <View style={styles.container}>
-        <Image source={require('../assets/logo.png')} style={styles.image} />
-        <Text style={styles.textWc}>Xác thực số điện thoại của bạn!</Text>
+        <Image source={require('../data/icon/logo.png')} style={styles.image} />
+        <Text style={styles.textWc}>Xin chào !</Text>
         <TextInput
           style={styles.header}
-          placeholder="Nhập mã OTP"
+          placeholder="Nhập số điện thoại"
           placeholderTextColor={'white'}
-          value={otp}
+          value={phoneNumber}
           keyboardType="numeric"
-          maxLength={6}
-          onChangeText={text => setOtp(text)}></TextInput>
+          maxLength={10}
+          onChangeText={text => setPhoneNumber(text)}
+          error={!!phoneNumber.error}
+          errorText={phoneNumber.error}></TextInput>
         {error ? (
-          <Text style={styles.errorMessage}>Vui lòng kiểm tra lại</Text>
+          <Text style={styles.errorMessage}>Số điện thoại không hợp lệ</Text>
         ) : null}
         <TouchableOpacity
-          onPress={() => onVertifyPress()}
+          onPress={() => onLoginPress()}
           style={styles.btnLogin}>
-          <Text style={styles.btnText}>Xác thực</Text>
+          <Text style={styles.btnText}>Login</Text>
         </TouchableOpacity>
         <View
           style={{
@@ -49,13 +60,13 @@ const Vertify = navigation => {
             width: '100%',
             padding: 20,
           }}>
-          <View style={{flex: 1, height: 1, backgroundColor: 'white'}} />
+          <View style={{ flex: 1, height: 1, backgroundColor: 'white' }} />
           <View>
-            <Text style={{width: 40, textAlign: 'center', color: 'white'}}>
+            <Text style={{ width: 40, textAlign: 'center', color: 'white' }}>
               Or
             </Text>
           </View>
-          <View style={{flex: 1, height: 1, backgroundColor: 'white'}} />
+          <View style={{ flex: 1, height: 1, backgroundColor: 'white' }} />
         </View>
         <TouchableOpacity
           onPress={() => onGGLoginPress()}
@@ -65,9 +76,7 @@ const Vertify = navigation => {
       </View>
     </ImageBackground>
   );
-};
-
-export default Vertify;
+}
 const styles = StyleSheet.create({
   background: {
     flex: 1,
@@ -87,7 +96,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   textWc: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#00B386',
     paddingVertical: 12,

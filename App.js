@@ -3,10 +3,6 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-<<<<<<< HEAD
-import Home from './src/components/dashboard/Home';
-=======
->>>>>>> e844178609445b043ee8fffbec65bcb31c963bad
 import GetStart from './src/components/GetStart';
 import SignIn from './src/components/authen/SignIn';
 import Vertify from './src/components/authen/Vertify';

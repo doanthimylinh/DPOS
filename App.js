@@ -7,6 +7,7 @@ import GetStart from './src/components/GetStart';
 import SignIn from './src/components/authen/SignIn';
 import Vertify from './src/components/authen/Vertify';
 import TabScreens from './src/components/dashboard/Home';
+import Chat from './src/components/dashboard/Chat';
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Vertify" component={Vertify} />
         <Stack.Screen name="TabScreens" component={TabScreens} />
+        <Stack.Screen name="Chat" component={Chat} />
       </Stack.Navigator>
     </NavigationContainer>
   );

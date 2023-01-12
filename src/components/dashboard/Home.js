@@ -1,10 +1,14 @@
-import {View, Text, Image} from 'react-native';
+import { View, Text, Image } from 'react-native';
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Account from './Account';
 import Hearder from './Hearder';
+import Cart from './Cart';
+import Notify from './Notify';
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import Promotion from './Promotion';
 
 const Tab = createBottomTabNavigator();
 const HomePage = () => {
@@ -33,19 +37,52 @@ export default TabScreens = () => {
           fontSize: 10,
           fontWeight: 'bold',
         },
-        tabBarActiveTintColor: '#43bd1e',
-      }}>
+       tabBarActiveTintColor: '#43bd1e',
+
+      }}
+
+    >
       <Tab.Screen
         name="Home"
         component={HomePage}
         options={{
-          tabBarLabel: 'Bán Online',
-          tabBarIcon: ({color, size}) => (
-            // <MaterialCommunityIcons name='home' color={color} size={30} />
-            <Image
-              style={{width: 30, height: 30}}
-              source={require('../data/image/acc_ex.png')}
-            />
+          tabBarLabel: 'Trang Chủ',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name='home' color={color} size={30} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Promotion"
+        component={Promotion}
+        options={{
+          tabBarLabel: 'Khuyến Mãi',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name='local-attraction' color={color} size={30} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <View
+              style={{
+              }}
+            >
+              <MaterialIcons name='shopping-cart' color={color} size={30} />
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Notify"
+        component={Notify}
+        options={{
+          tabBarLabel: 'Thông Báo',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name='bell' color={color} size={30} />
           ),
         }}
       />
@@ -54,15 +91,12 @@ export default TabScreens = () => {
         component={Account}
         options={{
           tabBarLabel: 'Tài Khoản',
-          tabBarIcon: ({color, size}) => (
-            // <MaterialIcons name='more-horiz' color={color} size={30} />
-            <Image
-              style={{width: 30, height: 30}}
-              source={require('../data/image/acc_ex.png')}
-            />
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name='more-horiz' color={color} size={30} />
           ),
         }}
       />
+
     </Tab.Navigator>
   );
 };

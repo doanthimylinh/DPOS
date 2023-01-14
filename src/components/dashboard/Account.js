@@ -1,11 +1,18 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
-import Hearder from './Hearder'
+import HeaderAcc from '../account/HeaderAcc';
+import Profile from '../account/Profile';
+import OrderHistory from '../account/OrderHistory';
+import MyApp from '../account/MyApp';
 export default function Account() {
   return (
     <View>
-      <Hearder></Hearder>
-      <Text>Account</Text>
+      <HeaderAcc></HeaderAcc>
+      <ScrollView>
+        <Profile></Profile>
+        <OrderHistory></OrderHistory>
+        <MyApp></MyApp>
+      </ScrollView>
     </View>
   )
 }

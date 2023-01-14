@@ -11,8 +11,9 @@ export default function GetStart() {
         source={require('../components/data/image/bia.png')}
       >
         <TouchableOpacity
-          onPress={() => navigation.navigate("SignIn")}
-          style={{ backgroundColor: '#d6928d', paddingHorizontal: 100, borderRadius: 80, marginBottom: 50 }}
+          onPress={() => navigation.navigate("TabScreens")}
+          style={{ backgroundColor: '#d6928d',
+           paddingHorizontal: 100, borderRadius: 80, marginBottom: 50 }}
         >
           <Text style={{ fontWeight: 'bold', fontSize: 40, cnolor: 'white' }}>GetStart</Text>
         </TouchableOpacity>
